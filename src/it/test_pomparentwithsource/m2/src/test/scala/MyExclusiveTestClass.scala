@@ -1,0 +1,2 @@
+class MyExclusiveTestClass extends MyTestClass {
+}

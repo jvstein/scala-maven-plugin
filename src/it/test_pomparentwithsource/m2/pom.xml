@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>it.scala-maven-plugin</groupId>
+    <artifactId>test_pomparentwithsource</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <groupId>it.scala-maven-plugin</groupId>
+  <artifactId>test_pomchild2</artifactId>
+  <name>${project.artifactId}</name>
+  <description>Test call on child that builds the parent source source folder with own source</description>
+  <packaging>jar</packaging>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>@project.groupId@</groupId>
+        <artifactId>@project.artifactId@</artifactId>
+        <executions>
+          <execution>
+            <id>more-source</id>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sourceDir>${basedir}/../src/main/scala</sourceDir>
+              <testSourceDir>${basedir}/../src/test/scala</testSourceDir>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

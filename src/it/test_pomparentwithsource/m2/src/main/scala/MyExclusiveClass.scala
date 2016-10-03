@@ -1,0 +1,2 @@
+class MyExclusiveClass extends MyClass {
+}

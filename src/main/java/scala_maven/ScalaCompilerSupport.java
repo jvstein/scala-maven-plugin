@@ -73,6 +73,10 @@ public abstract class ScalaCompilerSupport extends ScalaSourceMojoSupport {
 
     @Override
     protected void doExecute() throws Exception {
+        if ("pom".equals(project.getPackaging())) {
+            getLog().info( "Skipping compilation for project with packaging type 'pom'" );
+            return;
+        }
         if (getLog().isDebugEnabled()) {
             for (File directory : getSourceDirectories()) {
                 getLog().debug(FileUtils.pathOf(directory, useCanonicalPath));
